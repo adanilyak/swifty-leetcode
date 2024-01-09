@@ -17,6 +17,12 @@ public final class Heap<T>: CustomStringConvertible {
         self.comparator = comparator
     }
     
+    /// Build heap filled with `array` data
+    /// https://en.wikipedia.org/wiki/Binary_heap#Building_a_heap
+    /// - Parameters:
+    ///   - array: input data
+    ///   - comparator: defines the order in heap
+    /// - Complexity: `O(n)`
     public init(from array: [T], with comparator: @escaping Comparator) {
         self.elements = array
         self.comparator = comparator
@@ -28,12 +34,17 @@ public final class Heap<T>: CustomStringConvertible {
     
     // MARK: - Public Get Properties
     
+    /// The top element
+    /// - Complexity: `O(1)`
     public var root: T? { elements.first }
     public var isEmpty: Bool { elements.isEmpty }
     public var size: Int { elements.count }
     
     // MARK: - Public Methods
     
+    /// Extract the top element of the heap
+    /// - Returns: top element if exists, `nil` otherwise
+    /// - Complexity: `O(log(n))`
     @discardableResult public func poll() -> T? {
         guard !isEmpty else { return nil }
         
@@ -47,6 +58,9 @@ public final class Heap<T>: CustomStringConvertible {
         return pollingElement
     }
     
+    /// Inserts the element to the heap
+    /// - Parameter element: data
+    /// - Complexity: `O(log(n))`
     public func insert(_ element: T) {
         elements.append(element)
         sift(up: size - 1)
