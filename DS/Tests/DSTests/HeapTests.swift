@@ -21,6 +21,20 @@ final class HeapTests: XCTestCase {
         XCTAssertFalse(heap.isEmpty, "Should be false")
     }
     
+    func testMinHeapInitWithLargeArray() {
+        let heap = Heap(from: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], with: <)
+        XCTAssertEqual(heap.size, 16, "Should contain 16 elements")
+        XCTAssertEqual(heap.root, 1, "Should be 1")
+        XCTAssertFalse(heap.isEmpty, "Should be false")
+    }
+    
+    func testMaxHeapInitWithLargeArray() {
+        let heap = Heap(from: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], with: >)
+        XCTAssertEqual(heap.size, 16, "Should contain 16 elements")
+        XCTAssertEqual(heap.root, 16, "Should be 16")
+        XCTAssertFalse(heap.isEmpty, "Should be false")
+    }
+    
     func testMinHeapPoll() {
         let heap = Heap(from: [1, 2, 3], with: <)
         XCTAssertEqual(heap.poll(), 1, "Should be 1")

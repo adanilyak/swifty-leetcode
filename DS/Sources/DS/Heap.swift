@@ -27,7 +27,7 @@ public final class Heap<T>: CustomStringConvertible {
         self.elements = array
         self.comparator = comparator
         
-        (0...array.count / 2).reversed().forEach { i in
+        (0..<(array.count / 2)).reversed().forEach { i in
             sift(down: i)
         }
     }
