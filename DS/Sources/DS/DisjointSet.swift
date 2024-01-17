@@ -53,9 +53,8 @@ final public class DisjointSet: CustomStringConvertible {
         if x == parent[x] {
             return x
         } else {
-            let xi = find(parent[x])
-            parent[x] = xi
-            return xi
+            parent[x] = find(parent[x])
+            return parent[x]
         }
     }
     
