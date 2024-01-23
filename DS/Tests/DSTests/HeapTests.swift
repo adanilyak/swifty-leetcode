@@ -6,6 +6,12 @@
 import XCTest
 @testable import DS
 
+// ---------------------------- Disclaimer ----------------------------
+// Thats not the best way to write tests
+// Each test should be independent and test only one function at a time
+// This was done in order to simplify the implementation
+//
+
 final class HeapTests: XCTestCase {
     func testMinHeapInit() {
         let heap = Heap<Int>(with: <)
